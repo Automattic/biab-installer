@@ -1,9 +1,18 @@
 {
   "name": "blog-in-a-box",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Blog In A Box",
   "main": "app/index.js",
-  "repository": "https://github.com/tinkertinker/biab-gui",
+  "repository": "https://github.com/tinkertinker/biab-installer",
+  "keywords": [
+	  "raspberry pi",
+	  "raspbian",
+	  "wordpress",
+	  "wordpress.com"
+  ],
+  "engines": {
+	  "node": "^6.9.1"
+  },
   "scripts": {
     "start": "NODE_ENV=development DEBUG=tinker* webpack-dev-server --progress --colors --content-base=./app --config ./webpack.dev.config.js --port 3312 --host 0.0.0.0",
     "build-web": "NODE_ENV=production webpack --progress --colors --config ./webpack.web.config.js",
@@ -11,10 +20,10 @@
     "app": "NODE_ENV=production electron ./app",
 	"dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
     "pack": "build --dir -wm",
-    "dist": "build -m"
+    "dist": "build -mw",
+	"install": "yarn install --ignore-platform; cd app; yarn install --ignore-platform"
   },
   "author": "Automattic",
-  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.5.3",
     "babel": "^6.5.2",
@@ -135,10 +144,12 @@
       "category": "Development",
       "icon": "icons/"
     },
-	"forceCodeSigning": true,
     "mac": {
 		"target": "dmg",
 		"category": "public.app-category.developer-tools"
+	},
+	"nsis": {
+		"license": "LICENSE"
 	},
     "extraFiles": [
       {
