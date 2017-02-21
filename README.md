@@ -49,7 +49,7 @@ A packaged version of the app can be built with:
 
 To make a release to Github:
 
-- Ensure React app has been built: `yarn run build-web`
+- Commit all changes to Github and ensure that `package.json` and `app/package.json` have been versioned.
 - Ensure `GH_TOKEN` is set with a Github application specific token (needs the `repo` scope permission)
 - `yarn run release`
 - Go to [Releases](https://github.com/tinkertinker/biab-installer/releases) and edit the draft release
