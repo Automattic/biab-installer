@@ -6,6 +6,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const shell = electron.shell;
 const os = require( 'os' );
+const dialog = electron.dialog;
 const autoUpdater = require( 'electron-updater' ).autoUpdater;
 
 const isDevelopment = () => process.env.NODE_ENV === 'development';
@@ -148,10 +149,18 @@ autoUpdater.on( 'error', ( ev, err ) => {
 	log.info( 'Error in update', err  )
 } );
 
-autoUpdater.on( 'update-downloaded', (ev, info) => {
-	log.info( 'Update downloaded.  Will quit and install in 5 seconds.' );
+autoUpdater.on( 'update-downloaded', () => {
+	const updateDialogOptions = {
+		buttons: [ 'Update & Restart', 'Cancel' ],
+		title: 'Update Available',
+		message: 'An update is available for Blog In A Box',
+	};
 
-	setTimeout( () => autoUpdater.quitAndInstall(), 5000 );
+	dialog.showMessageBox( updateDialogOptions, resp => {
+		if ( resp === 0 ) {
+			autoUpdater.quitAndInstall();
+		}
+	} );
 })
 
 setTimeout( () => autoUpdater.checkForUpdates(), 1000 );

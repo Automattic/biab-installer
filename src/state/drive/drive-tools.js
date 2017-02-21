@@ -100,11 +100,11 @@ export function updateImage( device, download, config, dispatch ) {
 			return;
 		}
 
-		const targetWPName = path.join( getMountPoint( device ), 'biab', 'wordpress.tar.gz' );
+		const targetWPName = path.join( getMountPoint( device ), 'biab', 'wordpress.zip' );
 
 		debug( `Copying WordPress from ${ download.localFile } to ${ targetWPName }` );
 
-		// Write wordpress.tar.gz to /boot/biab/wordpress.tar.gz
+		// Write wordpress.zip to /boot/biab/wordpress.zip
 		ncp( download.localFile, targetWPName, error => {
 			if ( error ) {
 				debug( 'Error copying WordPress', error );

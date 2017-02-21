@@ -1,6 +1,6 @@
 {
   "name": "blog-in-a-box",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Blog In A Box",
   "main": "app/index.js",
   "repository": "https://github.com/tinkertinker/biab-installer",
@@ -21,7 +21,7 @@
     "dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
     "pack": "build --dir -wm",
     "dist": "build -mw",
-    "release": "yarn run build-web; build -mw -p always",
+    "release": "node ./check.js && yarn run build-web && build --mac --win -p always",
     "postinstall": "cd app; yarn install --ignore-platform"
   },
   "author": "Automattic",
@@ -149,7 +149,6 @@
       "icon": "icons/"
     },
     "mac": {
-      "target": "dmg",
       "category": "public.app-category.developer-tools"
     },
     "nsis": {
