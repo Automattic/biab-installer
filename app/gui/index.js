@@ -6,13 +6,19 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const shell = electron.shell;
 const os = require( 'os' );
+const autoUpdater = require( 'electron-updater' ).autoUpdater;
 
 const isDevelopment = () => process.env.NODE_ENV === 'development';
 
 let mainWindow = null;
 
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+
 if ( isDevelopment() ) {
 	const p = path.join( __dirname, '..', 'app', 'node_modules' );
+
+	log.info( 'Loading Electron debug' );
 
 	require( 'electron-debug' )();
 	require( 'module' ).globalPaths.push( p );
@@ -27,6 +33,7 @@ const installExtensions = () => {
 			'REDUX_DEVTOOLS'
 		];
 
+		log.info( 'Installing dev extensions' );
 		extensions.map( name => installer.default( installer[ name ] ) );
 	}
 };
@@ -93,6 +100,8 @@ function createWindow() {
 
 const shouldQuit = app.makeSingleInstance( () => {
 	if ( mainWindow ) {
+		log.info( 'Single instance check' );
+
 		if ( mainWindow.isMinimized() ) {
 			mainWindow.restore();
 	 	}
@@ -102,7 +111,8 @@ const shouldQuit = app.makeSingleInstance( () => {
 } );
 
 if ( shouldQuit ) {
-  app.quit();
+	log.info( 'Another copy is open, closing' );
+	app.quit();
 }
 
 app.on( 'ready', () => {
@@ -121,3 +131,27 @@ app.on( 'activate', function() {
 		createWindow();
 	}
 } );
+
+autoUpdater.on( 'checking-for-update', () => {
+	log.info( 'Checking for update' );
+} );
+
+autoUpdater.on( 'update-available', (ev, info) => {
+	log.info( 'Update available' );
+} );
+
+autoUpdater.on( 'update-not-available', (ev, info) => {
+	log.info( 'Update not available' );
+} );
+
+autoUpdater.on( 'error', ( ev, err ) => {
+	log.info( 'Error in update', err  )
+} );
+
+autoUpdater.on( 'update-downloaded', (ev, info) => {
+	log.info( 'Update downloaded.  Will quit and install in 5 seconds.' );
+
+	setTimeout( () => autoUpdater.quitAndInstall(), 5000 );
+})
+
+setTimeout( () => autoUpdater.checkForUpdates(), 1000 );

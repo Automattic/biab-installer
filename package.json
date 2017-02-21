@@ -1,41 +1,42 @@
 {
   "name": "blog-in-a-box",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Blog In A Box",
   "main": "app/index.js",
   "repository": "https://github.com/tinkertinker/biab-installer",
   "keywords": [
-	  "raspberry pi",
-	  "raspbian",
-	  "wordpress",
-	  "wordpress.com"
+    "raspberry pi",
+    "raspbian",
+    "wordpress",
+    "wordpress.com"
   ],
   "engines": {
-	  "node": "^6.9.1"
+    "node": "^6.9.1"
   },
   "scripts": {
     "start": "NODE_ENV=development DEBUG=tinker* webpack-dev-server --progress --colors --content-base=./app --config ./webpack.dev.config.js --port 3312 --host 0.0.0.0",
     "build-web": "NODE_ENV=production webpack --progress --colors --config ./webpack.web.config.js",
     "dev": "NODE_ENV=development electron ./app",
     "app": "NODE_ENV=production electron ./app",
-	"dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
+    "dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
     "pack": "build --dir -wm",
     "dist": "build -mw",
-	"install": "yarn install --ignore-platform; cd app; yarn install --ignore-platform"
+    "release": "build -mw -p always",
+    "postinstall": "cd app; yarn install --ignore-platform"
   },
   "author": "Automattic",
   "devDependencies": {
-    "autoprefixer": "^6.5.3",
-    "babel": "^6.5.2",
-    "babel-core": "^6.18.2",
+    "autoprefixer": "^6.7.4",
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.8",
+    "babel-loader": "^6.3.2",
     "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-plugin-transform-flow-strip-types": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.1.8",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.22.0",
     "babili-webpack-plugin": "^0.0.10",
@@ -43,41 +44,42 @@
     "css-loader": "^0.26.1",
     "devtron": "^1.4.0",
     "electron": "^1.4.15",
-    "electron-builder": "^13.9.0",
+    "electron-builder": "^13.11.1",
     "electron-debug": "^1.1.0",
     "electron-devtools-installer": "^2.1.0",
     "electron-rebuild": "^1.5.7",
-    "eslint": "^3.11.1",
+    "eslint": "^3.16.0",
     "eslint-config-wpcalypso": "^0.6.0",
-    "eslint-plugin-flowtype": "^2.29.1",
-    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-react": "^6.10.0",
     "eslint-plugin-wpcalypso": "^3.0.2",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
-    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-plugin": "^2.28.0",
     "json-loader": "^0.5.4",
     "lodash.noop": "^3.0.1",
     "mocha": "^3.2.0",
     "node-sass": "^4.5.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-focus": "^1.0.0",
-    "postcss-loader": "^1.2.0",
+    "postcss-loader": "^1.3.1",
     "postcss-reporter": "^3.0.0",
     "react-hot-loader": "^3.0.0-beta.5",
     "redux-devtools-extension": "^2.13.0",
-    "sass-loader": "^6.0.0",
+    "sass-loader": "^6.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0",
-    "webpack-merge": "^2.6.1",
+    "webpack-dev-server": "^2.4.1",
+    "webpack-merge": "^3.0.0",
     "webpack-remove-debug": "^0.1.0"
   },
   "dependencies": {
     "babel-register": "^6.23.0",
     "child_process": "^1.0.2",
-    "debug": "^2.3.3",
-    "drivelist": "^5.0.10",
+    "debug": "^2.6.1",
+    "drivelist": "^5.0.11",
     "electron-is-running-in-asar": "^1.0.0",
     "electron-log": "^1.3.0",
+    "electron-updater": "^1.7.1",
     "etcher-image-stream": "^5.1.0",
     "etcher-image-write": "^9.0.0",
     "generate-password": "^1.3.0",
@@ -87,11 +89,11 @@
     "ncp": "^2.0.0",
     "node-ipc": "^8.10.3",
     "prettysize": "^0.0.3",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0",
+    "redux-thunk": "^2.2.0",
     "removedrive": "^1.1.1",
     "resin-cli-form": "^1.4.1",
     "resin-cli-visuals": "^1.3.0",
@@ -127,30 +129,32 @@
     "dmg": {
       "icon": "build/dmg/icon.icns",
       "background": "build/dmg/background.png",
-	  "iconSize": "150",
-	  "title": "${productName}",
-	  "contents": [ {
-  			"x": 156,
-  			"y": 179
-		},
-		{
-			"x": 486,
-			"y": 176,
-			"type": "link",
-			"path": "/Applications"
-		} ]
-	},
+      "iconSize": "150",
+      "title": "${productName}",
+      "contents": [
+        {
+          "x": 156,
+          "y": 179
+        },
+        {
+          "x": 486,
+          "y": 176,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
     "linux": {
       "category": "Development",
       "icon": "icons/"
     },
     "mac": {
-		"target": "dmg",
-		"category": "public.app-category.developer-tools"
-	},
-	"nsis": {
-		"license": "LICENSE"
-	},
+      "target": "dmg",
+      "category": "public.app-category.developer-tools"
+    },
+    "nsis": {
+      "license": "LICENSE"
+    },
     "extraFiles": [
       {
         "from": "app/node_modules/drivelist/scripts",
