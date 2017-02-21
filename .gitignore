@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+*.log
+/BlogInABox-lite.zip
+/public_html/app.js
+/public_html/index.html
+/dist
+/app/index.html
+/app/web.js
