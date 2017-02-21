@@ -8,7 +8,7 @@ Manages the download of WordPress, Raspbian, and subsequent configuration, as we
 
 [Install Yarn](https://yarnpkg.com/en/docs/install) and then:
 
-`yarn run install`
+`yarn install --ignore-platform`
 
 This ensures you install all platform specific modules (Windows and MacOS).
 
@@ -26,6 +26,14 @@ The web app is found in the `src` directory, and the Electron app in `app`.
 
 Electron will hot-reload any changes you make to the web app, but changes will to the Electron app will require a restart of Electron.
 
+## Running a packaged version
+
+Run:
+
+`yarn run pack`
+
+To produce local packaged versions of the app.
+
 ### Dependencies
 
 During development dependencies are taken from the main `package.json`. For the production build only packages in the `app` directory will be used. It's therefore
@@ -36,6 +44,16 @@ important that you add packages to both.
 A packaged version of the app can be built with:
 
 `yarn run dist`
+
+## Releasing
+
+To make a release to Github:
+
+- Ensure React app has been built: `yarn run build-web`
+- Ensure `GH_TOKEN` is set with a Github application specific token (needs the `repo` scope permission)
+- `yarn run release`
+- Go to [Releases](https://github.com/tinkertinker/biab-installer/releases) and edit the draft release
+- Publish release
 
 ### DMG Background
 

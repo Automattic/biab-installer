@@ -1,15 +1,21 @@
 {
   "name": "blog-in-a-box",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Blog In A Box",
   "main": "index.js",
-  "repository": "https://github.com/tinkertinker/biab-gui",
+  "repository": "https://github.com/tinkertinker/biab-installer",
+  "keywords": [
+    "raspberry pi",
+    "raspbian",
+    "wordpress",
+    "wordpress.com"
+  ],
   "author": "Automattic",
-  "license": "ISC",
   "dependencies": {
     "archive-type": "^3.2.0",
     "drivelist": "^5.0.10",
     "electron-log": "^1.3.0",
+    "electron-updater": "^1.7.1",
     "elevator": "^2.1.0",
     "etcher-image-write": "^9.0.0",
     "gzip-uncompressed-size": "^1.0.0",
