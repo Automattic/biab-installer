@@ -22,6 +22,12 @@ The web app is found in the `src` directory, and the Electron app in `app`.
 
 Electron will hot-reload any changes you make to the web app, but changes will to the Electron app will require a restart of Electron.
 
+### DMG Background
+
+The DMG background is combined from build/dmg/background@1x.png and build/dmg/background@2x.png into build/dmg/background.png. To combine:
+
+`yarn run dmg`
+
 ### Dependencies
 
 During development dependencies are taken from the main `package.json`. For the production build only packages in the `app` directory will be used. It's therefore

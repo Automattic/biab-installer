@@ -9,8 +9,9 @@
     "build-web": "NODE_ENV=production webpack --progress --colors --config ./webpack.web.config.js",
     "dev": "NODE_ENV=development electron ./app",
     "app": "NODE_ENV=production electron ./app",
+	"dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
     "pack": "build --dir -wm",
-    "dist": "build -wm"
+    "dist": "build -m"
   },
   "author": "Automattic",
   "license": "ISC",
@@ -114,24 +115,32 @@
     "appId": "com.automattic.biab",
     "productName": "Blog In A Box",
     "copyright": "Automattic",
-    "asar": true,
     "dmg": {
       "icon": "build/dmg/icon.icns",
-      "background": "build/dmg/background.png"
-    },
+      "background": "build/dmg/background.png",
+	  "iconSize": "150",
+	  "title": "${productName}",
+	  "contents": [ {
+  			"x": 156,
+  			"y": 179
+		},
+		{
+			"x": 486,
+			"y": 176,
+			"type": "link",
+			"path": "/Applications"
+		} ]
+	},
     "linux": {
       "category": "Development",
       "icon": "icons/"
     },
+	"forceCodeSigning": true,
     "mac": {},
     "extraFiles": [
       {
         "from": "app/node_modules/drivelist/scripts",
         "to": "Resources/scripts"
-      },
-      {
-        "from": "blog-in-a-box.zip",
-        "to": "Resources"
       }
     ]
   }
