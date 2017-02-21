@@ -34,7 +34,7 @@ export function getWordPressResource() {
 		title: 'WordPress',
 		name: DOWNLOAD_TYPE_WORDPRESS,
 		installed: localStorage.getItem( 'installed-' + DOWNLOAD_TYPE_WORDPRESS ) || false,
-		localFile: path.join( app.getPath( 'userData' ), 'wordpress.tar.gz' ),
+		localFile: path.join( app.getPath( 'userData' ), 'wordpress.zip' ),
 	} );
 }
 
