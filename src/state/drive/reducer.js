@@ -82,8 +82,8 @@ export default function drive( state = {}, action ) {
 			return { ... state, progress: setProgress(), burnStatus: STATUS_COMPLETE };
 
 		case DRIVE_BURN_ERROR:
-			console.error( action.error.message );
-			return { ... state, burnStatus: STATUS_ERROR, progress: setProgress(), errorReason: action.error.message };
+			console.error( action.error );
+			return { ... state, burnStatus: STATUS_ERROR, progress: setProgress(), errorReason: action.error };
 	}
 
 	return state;
