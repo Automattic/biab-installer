@@ -35,6 +35,6 @@ export function getDefaultSettings() {
 		timezone: 'Europe/London',
 		locale: 'en_US.UTF-8',
 
-		nodeVersion: '7.5.0',
+		nodeVersion: '6.9.4',
 	};
 }

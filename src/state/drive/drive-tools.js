@@ -57,7 +57,7 @@ function configToFile( config ) {
 		`HOSTNAME="${ config.hostname }"`,
 		`HOSTNAME_URL="${ config.hostname }.local"`,
 		'',
-		'NODE_VERSION=7.5.0',
+		`NODE_VERSION=${ config.nodeVersion }`,
 		'',
 		`WP_USERNAME="${ config.wpUsername }"`,
 		`WP_PASSWORD="${ escapeQuote( config.wpPassword ) }"`,
