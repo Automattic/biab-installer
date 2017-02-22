@@ -24,7 +24,7 @@ import { getWordPressResource, getRaspbianResource } from './selector';
 
 const WP_VERSION = 'https://api.wordpress.org/core/version-check/1.7/';
 const RASPBIAN_VERSION = 'https://raw.githubusercontent.com/tinkertinker/biab-raspbian/dev/package.json';
-const raspbianRelease = version => `https://github.com/tinkertinker/biab-raspbian/releases/download/v${ version }/BlogInABox-lite.zip`;
+const raspbianRelease = version => `https://github.com/tinkertinker/biab-raspbian/releases/download/v${ version }/blog-in-a-box.zip`;
 
 function checkNewVersion( checkUrl, existingDownload, dispatch, versionExtract, downloadExtract ) {
 	dispatch( downloadCheck( existingDownload ) );
