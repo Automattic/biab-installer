@@ -13,6 +13,7 @@ import {
 	DOWNLOAD_STATUS_COMPLETE,
 	DOWNLOAD_STATUS_ERROR,
 } from './type';
+import { CONFIG_CLEAR_ALL } from 'state/config/type';
 import { getResource } from './selector';
 
 function replaceResources( resources, name, newResource ) {
@@ -32,8 +33,19 @@ function setResource( state, action, replacement ) {
 	return { ... state, resources: replaceResources( state.resources, action.name, updatedResource ) };
 }
 
+function clearAvailable( resources ) {
+	const newResources = [];
+
+	resources.map( item => newResources.push( { ... item, installed: false } ) );
+
+	return newResources;
+}
+
 export default function Download( state = {}, action ) {
 	switch ( action.type ) {
+		case CONFIG_CLEAR_ALL:
+			return { ... state, resources: clearAvailable( state.resources ) };
+
 		case DOWNLOAD_CHECK:
 			return { ... state, resources: state.resources.concat( [ action.resource ] ) };
 
