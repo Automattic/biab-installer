@@ -163,4 +163,6 @@ autoUpdater.on( 'update-downloaded', () => {
 	} );
 })
 
-setTimeout( () => autoUpdater.checkForUpdates(), 1000 );
+if ( ! isDevelopment() ) {
+	setTimeout( () => autoUpdater.checkForUpdates(), 1000 );
+}
