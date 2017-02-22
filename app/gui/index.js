@@ -8,6 +8,7 @@ const shell = electron.shell;
 const os = require( 'os' );
 const dialog = electron.dialog;
 const autoUpdater = require( 'electron-updater' ).autoUpdater;
+const appMenu = require( './menu' );
 
 const isDevelopment = () => process.env.NODE_ENV === 'development';
 
@@ -97,6 +98,8 @@ function createWindow() {
 		event.preventDefault();
 		shell.openExternal( url );
 	} );
+
+	appMenu.show();
 }
 
 const shouldQuit = app.makeSingleInstance( () => {
@@ -156,8 +159,11 @@ autoUpdater.on( 'update-downloaded', () => {
 		message: 'An update is available for Blog In A Box',
 	};
 
+	log.info( 'Update downloaded' );
+
 	dialog.showMessageBox( updateDialogOptions, resp => {
 		if ( resp === 0 ) {
+			log.info( 'Quit and restart' );
 			autoUpdater.quitAndInstall();
 		}
 	} );
