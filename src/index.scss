@@ -318,7 +318,12 @@ button:disabled {
 		}
 
 		.drive-item:hover {
-			background-color: green !important;
+			background-color: green;
+		}
+
+		.drive-item.is-protected, .drive-item.is-protected:hover {
+			opacity: 0.5;
+			background-color: red;
 		}
 	}
 }

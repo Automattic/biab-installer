@@ -54,6 +54,8 @@ function setAvailable( newDrives, existingDrives ) {
 	return existingDrives;
 }
 
+const autoSelect = ( avail, state ) => avail.length === 1 && state.available.length === 0 && ! avail[ 0 ].protected;
+
 export default function drive( state = {}, action ) {
 	switch ( action.type ) {
 		case DRIVE_SELECT:
@@ -62,7 +64,7 @@ export default function drive( state = {}, action ) {
 		case DRIVE_SET_AVAILABLE:
 			const avail = setAvailable( action.drives, state.available );
 
-			return { ... state, available: avail, selected: avail.length === 1 && state.available.length === 0 ? avail[ 0 ].device : state.selected };
+			return { ... state, available: avail, selected: autoSelect( avail, state ) ? avail[ 0 ].device : state.selected };
 
 		case DRIVE_SELECTOR_SHOW:
 			return { ... state, showing: true };
