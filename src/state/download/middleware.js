@@ -84,19 +84,19 @@ function downloadFile( existingDownload, url, version, dispatch ) {
 
 	req.on( 'end', () => {
 		if ( total > 0 ) {
-			fs.rename( tmpFile, existingDownload.localFile );
+			fs.renameSync( tmpFile, existingDownload.localFile );
 			localStorage.setItem( 'installed-' + existingDownload.name, version );
 
 			dispatch( downloadComplete( existingDownload.name, version ) );
 		} else {
-			fs.unlink( tmpFile );
+			fs.unlinkSync( tmpFile );
 
 			dispatch( downloadError( existingDownload.name ) );
 		}
 	} );
 
 	req.on( 'error', () => {
-		fs.unlink( tmpFile );
+		fs.unlinkSync( tmpFile );
 		dispatch( downloadError( existingDownload.name ) );
 	} );
 }
@@ -112,7 +112,7 @@ export const downloadMiddleware = store => next => action => {
 		[ getWordPressResource(), getRaspbianResource() ].map( resource => {
 			debug( 'Deleting ' + resource.localFile );
 
-			fs.unlink( resource.localFile );
+			fs.unlinkSync( resource.localFile );
 			localStorage.removeItem( 'installed-' + resource.name );
 		} );
 	}
