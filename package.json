@@ -75,6 +75,7 @@
   "dependencies": {
     "babel-register": "^6.23.0",
     "child_process": "^1.0.2",
+    "classnames": "^2.2.5",
     "debug": "^2.6.1",
     "drivelist": "^5.0.11",
     "electron-is-running-in-asar": "^1.0.0",

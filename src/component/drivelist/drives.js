@@ -15,7 +15,7 @@ const Drives = ( props ) => {
 
 	return (
 		<div className="drives">
-			{ available.map( drive => <DriveItem drive={ drive } key={ drive.device } onSelect={ onSelect } selected={ drive.device === selected } /> ) }
+			{ available.map( drive => <DriveItem drive={ drive } key={ drive.device } onSelect={ onSelect } selected={ drive.device === selected } isProtected={ drive.protected } /> ) }
 		</div>
 	);
 };
