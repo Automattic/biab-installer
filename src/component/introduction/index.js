@@ -6,8 +6,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+/**
+ * Internal dependencies
+ */
 import { gotoStage, clearAllData } from 'state/config/action';
 import { STAGE_DOWNLOAD } from 'state/config/type';
+import pkg from '../../../package.json';
 
 const Trash = () => {
 	return (
@@ -40,6 +44,8 @@ const Introduction = ( props ) => {
 
 			<footer>
 				<button onClick={ onNext }>Start &raquo;</button>
+
+				<div className="version">v{ pkg.version }</div>
 			</footer>
 		</div>
 	);
