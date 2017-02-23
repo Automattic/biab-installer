@@ -191,6 +191,7 @@ main.two-column {
 		font-size: 12px;
 		margin: 0;
 		margin-bottom: 10px;
+		line-height: 1;
 	}
 
 	th {
@@ -202,7 +203,7 @@ main.two-column {
 	}
 
 	td, th {
-		padding: 2px 0px;
+		padding: 0px 0px;
 	}
 
 	h2 {
@@ -261,7 +262,7 @@ button:disabled {
 .editable-input {
 	background-color: transparent;
 	border: none;
-	padding: 5px;
+	padding: 4px 6px;
 	color: #ddd;
 
 	&:hover, &:active, &:focus, .selected {
@@ -279,6 +280,7 @@ button:disabled {
 	top: 0;
 	left: 0;
 	width: 100%;
+	text-align: left;
 
 	.drive-list {
 		box-shadow: 2px 2px 15px -1px rgba(0,0,0,0.75);
@@ -399,4 +401,12 @@ ul {
 		fill: #333;
 		opacity: 0.5;
 	}
+}
+
+.version {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	color: #black;
+	opacity: 0.5;
 }

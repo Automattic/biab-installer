@@ -29,7 +29,7 @@ const raspbianRelease = version => `https://github.com/tinkertinker/biab-raspbia
 function checkNewVersion( checkUrl, existingDownload, dispatch, versionExtract, downloadExtract ) {
 	dispatch( downloadCheck( existingDownload ) );
 
-	debug( `Checking for new version of ${ existingDownload.title }: ${ checkUrl }` );
+	debug( `Checking for new version of ${ existingDownload.title }: ${ checkUrl } for ${ existingDownload.localFile }` );
 
 	// Check for new version
 	request( checkUrl, ( error, response ) => {

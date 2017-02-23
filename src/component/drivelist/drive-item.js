@@ -27,7 +27,8 @@ const DriveItem = ( props ) => {
 
 	return (
 		<div className={ classes } onClick={ clicker }>
-			{ getDriveName( drive ) + ' - ' + prettysize( drive.size ) }
+			<div className="drive-item-name">{ `${ getDriveName( drive ) } (${ prettysize( drive.size ) })` }</div>
+			<div className="drive-item-details">{ `${ drive.device } (${ drive.protected ? 'write-protected' : 'writeable' })` }</div>
 		</div>
 	);
 };

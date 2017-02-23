@@ -94,7 +94,7 @@ function createWindow() {
 		mainWindow = null;
 	} );
 
-	mainWindow.webContents.on('new-window', ( event, url ) => {
+	mainWindow.webContents.on( 'new-window', ( event, url ) => {
 		event.preventDefault();
 		shell.openExternal( url );
 	} );
