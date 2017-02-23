@@ -9,7 +9,7 @@ const debug = require( 'debug' )( 'biab:drive:middleware' );
  * Internal dependencies
  */
 
-import { DRIVE_SELECTOR_SHOW, DRIVE_BURN_FINISHED, DRIVE_SELECTOR_HIDE } from './type';
+import { DRIVE_SELECTOR_SHOW, DRIVE_BURN_FINISHED, DRIVE_SELECTOR_HIDE, DRIVE_SELECT } from './type';
 import { getDriveList } from './drive-tools';
 
 const DRIVE_PING = 2000;
@@ -43,7 +43,7 @@ export const driveMiddleware = store => next => action => {
 
 	if ( action.type === DRIVE_SELECTOR_SHOW ) {
 		enableDriveCheck( store.dispatch );
-	} else if ( action.type === DRIVE_SELECTOR_HIDE ) {
+	} else if ( action.type === DRIVE_SELECTOR_HIDE || action.type === DRIVE_SELECT ) {
 		disableDriveCheck();
 	}
 
