@@ -69,20 +69,9 @@ ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
 
-ajv-keywords@^2.0.1-beta.0:
-  version "2.0.1-beta.0"
-  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-2.0.1-beta.0.tgz#aa242a131ae362b8bf72ff9ad07b24d0918cdfab"
-
 ajv@^4.7.0:
   version "4.11.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.3.tgz#ce30bdb90d1254f762c75af915fb3a63e7183d22"
-  dependencies:
-    co "^4.6.0"
-    json-stable-stringify "^1.0.1"
-
-ajv@^5.0.2-beta:
-  version "5.0.2-beta.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.0.2-beta.0.tgz#0d760d028bb655b2680486bc9f4c53b584fcee97"
   dependencies:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
@@ -2304,13 +2293,11 @@ electron-builder-util@13.10.1, electron-builder-util@~13.10.1:
     stat-mode "^0.2.2"
     tunnel-agent "^0.4.3"
 
-electron-builder@^14.1.1:
-  version "14.1.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-14.1.1.tgz#5d27ce7a66d8fe7b14db7d50fad11c6aa1a42f5c"
+electron-builder@13.11.1:
+  version "13.11.1"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-13.11.1.tgz#6f338dcc0d00a3cf415e0a6d14307bf4990a2081"
   dependencies:
     "7zip-bin" "^2.0.4"
-    ajv "^5.0.2-beta"
-    ajv-keywords "^2.0.1-beta.0"
     asar-electron-builder "^0.13.5"
     bluebird-lst "^1.0.1"
     chalk "^1.1.3"
@@ -6349,7 +6336,7 @@ sumchecker@^2.0.1:
   dependencies:
     debug "^2.2.0"
 
-supports-color@3.1.2:
+supports-color@3.1.2, supports-color@^3.1.0, supports-color@^3.1.1:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
   dependencies:
@@ -6359,7 +6346,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.1.0, supports-color@^3.1.1, supports-color@^3.2.3:
+supports-color@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
