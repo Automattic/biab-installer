@@ -67,8 +67,6 @@ export function getSettingsAsText( config ) {
 		'',
 		`WIFI_NETWORK="${ config.wifiNetwork }"`,
 		`WIFI_PASSWORD="${ config.wifiPassword }"`,
-		'WIFI_MGMT=WPA-PSK',
-		'WIFI_PSK=PSK',
 		'',
 		`TIMEZONE=${ config.timezone }`,
 		`LOCALE=${ config.locale }`,
