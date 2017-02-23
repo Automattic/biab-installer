@@ -18,9 +18,8 @@ import { gotoStage } from 'state/config/action';
 import { STAGE_SELECT_DRIVE } from 'state/config/type';
 import { burnProgress, setAvailableDrives, burnError, burnImageComplete, burnFinished } from 'state/drive/action';
 import { getMountPoint } from 'state/drive/selector';
+import { getSettingsAsText } from 'state/config/selector';
 import * as unmounter from 'cli/unmount';
-
-const escapeQuote = str => str.replace( /"/g, '\\"' );
 
 export function writeImage( device, image, dispatch ) {
 	const child = childwriter.write( image, { device: device.device }, {
@@ -50,45 +49,9 @@ export function writeImage( device, image, dispatch ) {
 	} );
 }
 
-function configToFile( config ) {
-	const lines = [
-		`SAMBA_WORKGROUP="${ config.samba }"`,
-		'',
-		`HOSTNAME="${ config.hostname }"`,
-		`HOSTNAME_URL="${ config.hostname }.local"`,
-		'',
-		`NODE_VERSION=${ config.nodeVersion }`,
-		'',
-		`WP_USERNAME="${ config.wpUsername }"`,
-		`WP_PASSWORD="${ escapeQuote( config.wpPassword ) }"`,
-		`WP_EMAIL="${ escapeQuote( config.wpEmail ) }"`,
-		`WP_TAGLINE="${ escapeQuote( config.wpTagline ) }"`,
-		`WP_BLOG_TITLE="${ escapeQuote( config.wpTitle ) }"`,
-		'',
-		`MYSQL_ROOT_PASSWORD="${ escapeQuote( config.mysqlRootPassword ) }"`,
-		`MYSQL_WP_USER="${ config.mysqlWpUser }"`,
-		`MYSQL_WP_PASSWORD="${ escapeQuote( config.mysqlWpPassword ) }"`,
-		`MYSQL_WP_DATABASE="${ config.mysqlWpDatabase }"`,
-		'',
-		`PI_USER_PASSWORD="${ escapeQuote( config.piPassword ) }"`,
-		'',
-		`SSH_KEY="${ escapeQuote( config.sshKey ) }"`,
-		'',
-		`WIFI_NETWORK="${ config.wifiNetwork }"`,
-		`WIFI_PASSWORD="${ config.wifiPassword }"`,
-		'WIFI_MGMT=WPA-PSK',
-		'WIFI_PSK=PSK',
-		'',
-		`TIMEZONE=${ config.timezone }`,
-		`LOCALE=${ config.locale }`,
-	];
-
-	return lines.join( '\n' );
-}
-
 export function updateImage( device, download, config, dispatch ) {
 	const targetConfigName = path.join( getMountPoint( device ), 'biab', 'setup.conf' );
-	const configData = configToFile( config.settings );
+	const configData = getSettingsAsText( config.settings );
 
 	debug( 'Saving config to ' + targetConfigName, configData );
 

@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { clipboard } from 'electron';
 
 /**
  * Internal dependencies
@@ -11,6 +12,11 @@ import { connect } from 'react-redux';
 
 import { gotoStage } from 'state/config/action';
 import { STAGE_SELECT_DRIVE } from 'state/config/type';
+import { getSettingsAsText } from 'state/config/selector';
+
+function copy( settings ) {
+	clipboard.writeText( getSettingsAsText( settings ) );
+}
 
 const Complete = ( props ) => {
 	const { onAgain, settings, versionWP } = props;
@@ -29,8 +35,9 @@ const Complete = ( props ) => {
 					<li>Remove the SD card</li>
 					<li>Insert into your Raspberry Pi (optionally attach a monitor to the Pi)</li>
 					<li>Start your Raspberry Pi</li>
-					<li>Your Pi will reboot several times to finish installation - wait until this has complete</li>
+					<li>Your Pi will reboot several times to finish installation - wait until this has completed</li>
 					<li>Connect to <a href={ 'http://' + settings.hostname + '.local' } rel="noopener noreferrer" target="_blank">{ settings.hostname }.local</a></li>
+					<li>Forgotten your login details? <a href="#" onClick={ copy( settings ) }>Copy them to your clipboard</a></li>
 				</ul>
 			</main>
 

@@ -8,6 +8,8 @@ const PASSWORD_CONFIG = { length: 16, numbers: true };
 
 export const hasUpdate = version => version.installed !== version.available;
 
+const escapeQuote = str => str.replace( /"/g, '\\"' );
+
 export function getDefaultSettings() {
 	return {
 		hostname: 'bloginabox',
@@ -37,4 +39,40 @@ export function getDefaultSettings() {
 
 		nodeVersion: '6.9.4',
 	};
+}
+
+export function getSettingsAsText( config ) {
+	const lines = [
+		`SAMBA_WORKGROUP="${ config.samba }"`,
+		'',
+		`HOSTNAME="${ config.hostname }"`,
+		`HOSTNAME_URL="${ config.hostname }.local"`,
+		'',
+		`NODE_VERSION=${ config.nodeVersion }`,
+		'',
+		`WP_USERNAME="${ config.wpUsername }"`,
+		`WP_PASSWORD="${ escapeQuote( config.wpPassword ) }"`,
+		`WP_EMAIL="${ escapeQuote( config.wpEmail ) }"`,
+		`WP_TAGLINE="${ escapeQuote( config.wpTagline ) }"`,
+		`WP_BLOG_TITLE="${ escapeQuote( config.wpTitle ) }"`,
+		'',
+		`MYSQL_ROOT_PASSWORD="${ escapeQuote( config.mysqlRootPassword ) }"`,
+		`MYSQL_WP_USER="${ config.mysqlWpUser }"`,
+		`MYSQL_WP_PASSWORD="${ escapeQuote( config.mysqlWpPassword ) }"`,
+		`MYSQL_WP_DATABASE="${ config.mysqlWpDatabase }"`,
+		'',
+		`PI_USER_PASSWORD="${ escapeQuote( config.piPassword ) }"`,
+		'',
+		`SSH_KEY="${ escapeQuote( config.sshKey ) }"`,
+		'',
+		`WIFI_NETWORK="${ config.wifiNetwork }"`,
+		`WIFI_PASSWORD="${ config.wifiPassword }"`,
+		'WIFI_MGMT=WPA-PSK',
+		'WIFI_PSK=PSK',
+		'',
+		`TIMEZONE=${ config.timezone }`,
+		`LOCALE=${ config.locale }`,
+	];
+
+	return lines.join( '\n' );
 }
