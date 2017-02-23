@@ -18,7 +18,7 @@ function changeSetting( current, name, value ) {
 		value = value.replace( / /g, '' );
 	}
 
-	if ( value.length === 0 ) {
+	if ( value.length === 0 && name !== 'samba' ) {
 		const def = getDefaultSettings();
 
 		value = def[ name ];
