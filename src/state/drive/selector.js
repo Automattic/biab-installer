@@ -19,4 +19,4 @@ export function getDeviceName( drive ) {
 	return drive.device;
 }
 
-export const getMountPoint = drive => drive.mountpoints.length > 0 ? drive.mountpoints[ 0 ].path : false;
+export const getMountPoint = drive => drive.mountpoints.length > 0 ? drive.mountpoints[ drive.mountpoints.length - 1 ].path : false;
