@@ -19,9 +19,9 @@
     "dev": "NODE_ENV=development electron ./app",
     "app": "NODE_ENV=production electron ./app",
     "dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
-    "pack": "build --dir -wm",
-    "dist": "build -mw",
-    "release": "node ./check.js && yarn run build-web && build --mac --win -p always",
+    "pack": "build --dir -mwl",
+    "dist": "build -mwl",
+    "release": "node ./check.js && yarn run build-web && build --mac --win --linux -p always",
     "postinstall": "cd app; yarn install --ignore-platform"
   },
   "author": "Automattic",
