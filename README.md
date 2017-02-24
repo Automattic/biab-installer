@@ -60,3 +60,12 @@ To make a release to Github:
 The DMG background is combined from build/dmg/background@1x.png and build/dmg/background@2x.png into build/dmg/background.png. To combine:
 
 `yarn run dmg`
+
+## Contributing
+
+We welcome contributions in any form, and you can help reporting, testing, and detailing bugs.
+
+## License
+
+The Blog In A Box theme is licensed under [GNU General Public License v2 (or later)](./LICENSE).
+
