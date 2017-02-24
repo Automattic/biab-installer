@@ -1,3 +1,4 @@
+/* global alert */
 /**
  * External dependencies
  */
@@ -54,6 +55,11 @@ export function updateImage( device, download, config, dispatch ) {
 	const configData = getSettingsAsText( config.settings );
 
 	debug( 'Saving config to ' + targetConfigName, configData );
+
+	// Nag the user to insert the SD card - on Linux it gets unmounted after burning
+	while ( ! fs.existsSync( targetConfigName ) ) {
+		alert( 'Please re-insert your SD card' );
+	}
 
 	// Write config to /boot/biab/setup.conf
 	fs.writeFile( targetConfigName, configData, err => {
