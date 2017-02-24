@@ -214,8 +214,8 @@ drivelist@^3.1.0:
     underscore.string "^3.2.2"
 
 drivelist@^5.0.10:
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/drivelist/-/drivelist-5.0.10.tgz#41c043be94205c71354d4494291c46a4cfa74e94"
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/drivelist/-/drivelist-5.0.14.tgz#1409507fcdcaad3e35c657f799fd110b00e29509"
   dependencies:
     debug "^2.6.0"
     js-yaml "^3.4.1"
@@ -561,8 +561,8 @@ object-keys@~0.4.0:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-0.4.0.tgz#28a6aae7428dd2c3a92f3d95f21335dd204e0336"
 
 once@^1.3.0:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/once/-/once-1.3.3.tgz#b2e261557ce4c314ec8304f3fa82663e4297ca20"
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   dependencies:
     wrappy "1"
 
@@ -651,8 +651,8 @@ read-pkg@^1.0.0:
     path-type "^1.0.0"
 
 readable-stream@^2.1.0, readable-stream@^2.1.5:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.3.tgz#9cf49463985df016c8ae8813097a9293a9b33729"
   dependencies:
     buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
@@ -855,9 +855,9 @@ strip-bom@^2.0.0:
   dependencies:
     is-utf8 "^0.2.0"
 
-sudo-prompt@^6.2.1:
+"sudo-prompt@https://github.com/tinkertinker/sudo-prompt.git":
   version "6.2.1"
-  resolved "https://registry.yarnpkg.com/sudo-prompt/-/sudo-prompt-6.2.1.tgz#1079211ac2cf21f5230ffbeb124ffc22cee4c2b6"
+  resolved "https://github.com/tinkertinker/sudo-prompt.git#559f2f0fcf3c40511282bbc4f03296e6ea6497ba"
 
 supports-color@^2.0.0:
   version "2.0.0"
