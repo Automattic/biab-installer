@@ -4,7 +4,14 @@ export function getInitialDrive() {
 	return {
 		showing: false,
 		selected: false,
-		available: [],
+		available: [ {
+			device: '/boot/thing',
+			description: 'A drive',
+			mountpoints: [ { path: '/boot' } ],
+			protected: false,   // true to set as write-protected
+			system: false,
+			size: 123456,
+		} ],
 		burnStatus: STATUS_NOTHING,
 		errorReason: false,
 		progress: {
