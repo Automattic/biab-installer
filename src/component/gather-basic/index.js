@@ -41,7 +41,7 @@ const GatherBasic = ( props ) => {
 
 				<p className="explain">You can usually find your key somewhere like <code>~/.ssh/id_rsa.pub</code></p>
 
-				<p>Need more <a href="https://github.com/tinkertinker/biab-installer" rel="noopener noreferrer" target="_blank">help?</a></p>
+				<p>Need more <a href="https://github.com/Automattic/biab-installer" rel="noopener noreferrer" target="_blank">help?</a></p>
 			</main>
 
 			<footer>

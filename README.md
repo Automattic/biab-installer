@@ -1,6 +1,6 @@
 # Blog In A Box Installer
 
-A GUI installer tool to install [Blog In A Box](https://github.com/tinkertinker/biab-plugin) onto an SD card.
+A GUI installer tool to install [Blog In A Box](https://github.com/Automattic/biab-plugin) onto an SD card.
 
 Manages the download of WordPress, Raspbian, and subsequent configuration, as well as the actual image burning.
 
@@ -52,7 +52,7 @@ To make a release to Github:
 - Commit all changes to Github and ensure that `package.json` and `app/package.json` have been versioned.
 - Ensure `GH_TOKEN` is set with a Github application specific token (needs the `repo` scope permission)
 - `yarn run release`
-- Go to [Releases](https://github.com/tinkertinker/biab-installer/releases) and edit the draft release
+- Go to [Releases](https://github.com/Automattic/biab-installer/releases) and edit the draft release
 - Publish release
 
 ### DMG Background

@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "description": "Blog In A Box",
   "main": "app/index.js",
-  "repository": "https://github.com/tinkertinker/biab-installer",
+  "repository": "https://github.com/Automattic/biab-installer",
   "keywords": [
     "raspberry pi",
     "raspbian",
