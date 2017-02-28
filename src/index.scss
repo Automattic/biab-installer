@@ -122,6 +122,16 @@ p {
 		justify-content: center;
 		flex-direction: column;
 		display: flex;
+
+		p {
+			text-align: center;
+		}
+
+		ul {
+			max-width: 540px;
+			margin: 0 auto;
+		}
+
 	}
 
 	header {
@@ -262,14 +272,13 @@ button:disabled {
 }
 
 .editable-input {
-	background-color: rgba( 255,255,255,.5 );
+	background-color: rgba( 255,255,255,.75 );
 	border: none;
 	padding: 4px 6px;
 	color: $gray-darkest;
 
 	&:hover, &:active, &:focus, .selected {
-		background-color: #2e4453;
-		border-color: 1px solid red;
+		background-color: $white;
 		outline: none;
 	}
 }
@@ -322,15 +331,24 @@ input, textarea {
 		}
 
 		.drive-item {
-			padding: 10px 5px;
+			padding: 5px;
+			cursor: pointer;
+			font-family: monospace;
+			font-size: 13px;
+			border-radius: 2px;
+			margin: 2px 0;
+		}
+
+		.drive-item-name {
+			font-weight: bold;
 		}
 
 		.drive-item.is-selected {
-			background-color: lightgreen;
+			background-color: $green-light;
 		}
 
 		.drive-item:hover {
-			background-color: green;
+			background-color: $green;
 		}
 
 		.drive-item.is-protected, .drive-item.is-protected:hover {
@@ -347,14 +365,15 @@ p.explain {
 
 .progress {
 	width: 400px;
-	border: 1px solid rgb(250, 203, 147);
-	background-color: rgb(250, 203, 147);
-	height: 50px;
+	background-color: #52c8ec;
+	height: 48px;
 	margin: 0 auto;
+	border-radius: 24px;
+	overflow: hidden;
 
 	.progress-bar {
 		height: 48px;
-		background-color: rgb(255, 162, 52);
+		background-color: $gray-darkest;
 	}
 }
 
