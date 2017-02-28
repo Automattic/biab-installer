@@ -3,6 +3,7 @@
  */
 
 import password from 'generate-password';
+import moment from 'moment-timezone';
 const fs = require( 'fs' );
 
 const PASSWORD_CONFIG = { length: 16, numbers: true };
@@ -35,7 +36,7 @@ export function getDefaultSettings() {
 		wifiNetwork: '',
 		wifiPassword: '',
 
-		timezone: 'Europe/London',
+		timezone: moment.tz.guess(),
 		locale: 'en_US.UTF-8',
 
 		nodeVersion: '6.9.4',

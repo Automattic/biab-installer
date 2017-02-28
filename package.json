@@ -87,6 +87,7 @@
     "humanize-duration": "^3.10.0",
     "is-elevated": "^1.0.0",
     "lodash": "^4.17.4",
+    "moment-timezone": "^0.5.11",
     "ncp": "^2.0.0",
     "node-ipc": "^8.10.3",
     "prettysize": "^0.0.3",
