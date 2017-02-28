@@ -1,6 +1,6 @@
 # Blog In A Box Installer
 
-A GUI installer tool to install [Blog In A Box](https://github.com/Automattic/biab-plugin) onto an SD card.
+A GUI installer tool to install [Blog In A Box](https://inabox.blog/) onto an SD card.
 
 Manages the download of WordPress, Raspbian, and subsequent configuration, as well as the actual image burning.
 
@@ -67,5 +67,4 @@ We welcome contributions in any form, and you can help reporting, testing, and d
 
 ## License
 
-The Blog In A Box installer is licensed under [GNU General Public License v2 (or later)](./LICENSE).
-
+The Blog In A Box installer is licensed under [GNU General Public License](./LICENSE).

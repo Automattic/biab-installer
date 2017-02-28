@@ -50,7 +50,7 @@ const GatherBasic = ( props ) => {
 					</tbody>
 				</table>
 
-				<p>Need more <a href="https://github.com/Automattic/biab-installer" rel="noopener noreferrer" target="_blank">help?</a></p>
+				<p>Need more <a href="https://inabox.blog/support/" rel="noopener noreferrer" target="_blank">help?</a></p>
 			</main>
 
 			<footer>
