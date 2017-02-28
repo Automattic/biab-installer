@@ -29,13 +29,17 @@ function changeSetting( current, name, value ) {
 }
 
 function setValidity( name, isValid, existing ) {
-	const without = existing.filter( item => item !== name );
+	if ( isValid ) {
+		const without = existing.filter( item => item !== name );
 
-	if ( ! isValid ) {
-		return without.concat( [ name ] );
+		if ( ! isValid ) {
+			return without.concat( [ name ] );
+		}
+
+		return without;
 	}
 
-	return without;
+	return existing;
 }
 
 export default function config( state = {}, action ) {

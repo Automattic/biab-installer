@@ -12,6 +12,7 @@ import SelectDrive from 'component/select-drive';
 import Burn from 'component/burn';
 import Download from 'component/download';
 import Complete from 'component/complete';
+import ShowAgain from 'component/show-again';
 
 import {
 	STAGE_INTRO,
@@ -21,6 +22,7 @@ import {
 	STAGE_BURN,
 	STAGE_DOWNLOAD,
 	STAGE_COMPLETE,
+	STAGE_SHOW_DETAILS,
 } from 'state/config/type';
 
 class Home extends React.Component {
@@ -41,6 +43,8 @@ class Home extends React.Component {
 			return <Burn />;
 		} else if ( stage === STAGE_COMPLETE ) {
 			return <Complete />;
+		} else if ( stage === STAGE_SHOW_DETAILS ) {
+			return <ShowAgain />;
 		}
 	}
 }

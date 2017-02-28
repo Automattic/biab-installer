@@ -3,6 +3,7 @@
  */
 
 import password from 'generate-password';
+const fs = require( 'fs' );
 
 const PASSWORD_CONFIG = { length: 16, numbers: true };
 
@@ -41,6 +42,18 @@ export function getDefaultSettings() {
 	};
 }
 
+function getSshKey( location ) {
+	if ( location ) {
+		try {
+			return fs.readFileSync( location ).toString().trim();
+		} catch ( e ) {
+			return '';
+		}
+	}
+
+	return '';
+}
+
 export function getSettingsAsText( config ) {
 	const lines = [
 		`SAMBA_WORKGROUP="${ config.samba }"`,
@@ -63,7 +76,7 @@ export function getSettingsAsText( config ) {
 		'',
 		`PI_USER_PASSWORD="${ escapeQuote( config.piPassword ) }"`,
 		'',
-		`SSH_KEY="${ escapeQuote( config.sshKey ) }"`,
+		`SSH_KEY="${ escapeQuote( getSshKey( config.sshKey ) ) }"`,
 		'',
 		`WIFI_NETWORK="${ config.wifiNetwork }"`,
 		`WIFI_PASSWORD="${ config.wifiPassword }"`,

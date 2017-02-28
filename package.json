@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "description": "Blog In A Box",
   "main": "app/index.js",
-  "repository": "https://github.com/tinkertinker/biab-installer",
+  "repository": "https://github.com/Automattic/biab-installer",
   "keywords": [
     "raspberry pi",
     "raspbian",
@@ -18,7 +18,7 @@
     "build-web": "NODE_ENV=production webpack --progress --colors --config ./webpack.web.config.js",
     "dev": "NODE_ENV=development electron ./app",
     "app": "NODE_ENV=production electron ./app",
-    "dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background2.png",
+    "dmg": "tiffutil -cathidpicheck build/dmg/background@1x.png build/dmg/background@2x.png -out build/dmg/background.png",
     "pack": "build --dir -mwl",
     "dist": "build -mwl",
     "release": "node ./check.js && yarn run build-web && build --mac --win --linux -p always",

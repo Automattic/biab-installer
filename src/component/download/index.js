@@ -41,7 +41,7 @@ const Download = props => {
 	return (
 		<div className="home">
 			<header>
-				<h1>Blog In A Box - Download</h1>
+				<h1>Downloads</h1>
 			</header>
 
 			<main>
