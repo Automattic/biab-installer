@@ -31,12 +31,12 @@ const SelectDrive = ( props ) => {
 				{ showing && <DriveList /> }
 
 				<p>{ selected }</p>
-				<p><button onClick={ onShowDriveSelector }>Change Drive</button></p>
+				<p><button onClick={ onShowDriveSelector } disabled={ showing }>Change Drive</button></p>
 			</main>
 
 			<footer>
-				<button onClick={ onBack }>Go Back</button>
-				<button onClick={ onNext } disabled={ ! selectedDrive }>Burn It</button>
+				<button onClick={ onBack } disabled={ showing }>Go Back</button>
+				<button onClick={ onNext } disabled={ ! selectedDrive || showing }>Burn It</button>
 			</footer>
 		</div>
 	);

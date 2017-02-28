@@ -358,8 +358,7 @@ input, textarea {
 		}
 
 		.drive-item.is-protected, .drive-item.is-protected:hover {
-			opacity: 0.5;
-			background-color: red;
+			background-color: rgb(255, 134, 89);
 		}
 	}
 }
@@ -376,6 +375,7 @@ p.explain {
 	margin: 0 auto;
 	border-radius: 24px;
 	overflow: hidden;
+	margin-bottom: 5px;
 
 	.progress-bar {
 		height: 48px;
@@ -444,4 +444,10 @@ ul {
 	bottom: 10px;
 	color: #black;
 	opacity: 0.5;
+}
+
+.ssh-location {
+	display: inline;
+	font-family: courier;
+	font-size: 13px;
 }

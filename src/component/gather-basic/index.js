@@ -44,7 +44,7 @@ const GatherBasic = ( props ) => {
 							<th>Public SSH key</th>
 							<td>
 								<button className="button-small" onClick={ onPickSSH }>Select</button>
-								{ settings.sshKey ? <p>{ shortenPath( settings.sshKey ) }</p> : false }
+								{ settings.sshKey ? <p className="ssh-location">{ shortenPath( settings.sshKey ) }</p> : false }
 							</td>
 						</tr>
 					</tbody>
