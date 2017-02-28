@@ -28,7 +28,7 @@ const GatherBasic = ( props ) => {
 			</header>
 
 			<main>
-				<p>These basic settings allow you to connect to your Pi after it boots. Leave blank if you don't need wifi.</p>
+				<p>These settings allow you to connect to your Pi after it boots. Leave blank if you don't need wifi.</p>
 
 				<table className="gather">
 					<tbody>

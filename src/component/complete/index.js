@@ -4,22 +4,16 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { clipboard } from 'electron';
 
 /**
  * Internal dependencies
  */
 
 import { gotoStage } from 'state/config/action';
-import { STAGE_SELECT_DRIVE } from 'state/config/type';
-import { getSettingsAsText } from 'state/config/selector';
-
-function copy( settings ) {
-	clipboard.writeText( getSettingsAsText( settings ) );
-}
+import { STAGE_SELECT_DRIVE, STAGE_SHOW_DETAILS } from 'state/config/type';
 
 const Complete = ( props ) => {
-	const { onAgain, settings, versionWP } = props;
+	const { onAgain, settings, versionWP, onShowAgain } = props;
 
 	return (
 		<div className="home">
@@ -37,7 +31,7 @@ const Complete = ( props ) => {
 					<li>Start your Raspberry Pi</li>
 					<li>Your Pi will reboot several times to finish installation - wait until this has completed</li>
 					<li>Connect to <a href={ 'http://' + settings.hostname + '.local' } rel="noopener noreferrer" target="_blank">{ settings.hostname }.local</a></li>
-					<li>Forgotten your login details? <a href="#" onClick={ copy( settings ) }>Copy them to your clipboard</a></li>
+					<li>Forgotten your login details? <a href="#" onClick={ onShowAgain }>Show them to me again!</a></li>
 				</ul>
 			</main>
 
@@ -52,6 +46,9 @@ function mapDispatchToProps( dispatch ) {
 	return {
 		onAgain: () => {
 			dispatch( gotoStage( STAGE_SELECT_DRIVE ) );
+		},
+		onShowAgain: () => {
+			dispatch( gotoStage( STAGE_SHOW_DETAILS ) );
 		}
 	};
 }
