@@ -23,31 +23,32 @@ import { getSettingsAsText } from 'state/config/selector';
 import * as unmounter from 'cli/unmount';
 
 export function writeImage( device, image, dispatch ) {
-	const child = childwriter.write( image, { device: device.device }, {
-		validateWriteOnSuccess: false,
-		unmountOnSuccess: false,
-	} );
-
-	child.on( 'error', error => {
-		console.error( error );  // eslint-disable-line no-console
-		dispatch( burnError( 'Unable to write image to SD card' ) );
-	} );
-
-	child.on( 'done', status => {
-		if ( status.cancelled ) {
-			dispatch( gotoStage( STAGE_SELECT_DRIVE ) );
-		} else {
-			// status = { sourceChecksum = '1234' }
-			dispatch( burnImageComplete() );
-		}
-	} );
-
-	child.on( 'progress', state => {
-		// { type: 'write', percentage: 34, eta: seconds, speed: bps }
-		if ( state.type === 'write' ) {
-			dispatch( burnProgress( state.percentage, state.eta, state.speed ) );
-		}
-	} );
+	dispatch( burnProgress( 45, 123, 232323 ) );
+	// const child = childwriter.write( image, { device: device.device }, {
+	// 	validateWriteOnSuccess: false,
+	// 	unmountOnSuccess: false,
+	// } );
+	//
+	// child.on( 'error', error => {
+	// 	console.error( error );  // eslint-disable-line no-console
+	// 	dispatch( burnError( 'Unable to write image to SD card' ) );
+	// } );
+	//
+	// child.on( 'done', status => {
+	// 	if ( status.cancelled ) {
+	// 		dispatch( gotoStage( STAGE_SELECT_DRIVE ) );
+	// 	} else {
+	// 		// status = { sourceChecksum = '1234' }
+	// 		dispatch( burnImageComplete() );
+	// 	}
+	// } );
+	//
+	// child.on( 'progress', state => {
+	// 	// { type: 'write', percentage: 34, eta: seconds, speed: bps }
+	// 	if ( state.type === 'write' ) {
+	// 		dispatch( burnProgress( state.percentage, state.eta, state.speed ) );
+	// 	}
+	// } );
 }
 
 export function updateImage( device, download, config, dispatch ) {

@@ -37,14 +37,14 @@ function enableDriveCheck( dispatch ) {
 export const driveMiddleware = store => next => action => {
 	if ( firstTime ) {
 		debug( 'First drive check' );
-		getDriveList( store.dispatch );
+//		getDriveList( store.dispatch );
 		firstTime = false;
 	}
 
 	if ( action.type === DRIVE_SELECTOR_SHOW ) {
-		enableDriveCheck( store.dispatch );
+//		enableDriveCheck( store.dispatch );
 	} else if ( action.type === DRIVE_SELECTOR_HIDE || action.type === DRIVE_SELECT ) {
-		disableDriveCheck();
+//		disableDriveCheck();
 	}
 
 	if ( action.type === DRIVE_BURN_FINISHED ) {

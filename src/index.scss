@@ -105,7 +105,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin: 0;
 	line-height: 1.6;
 }
 
@@ -123,6 +122,16 @@ p {
 		justify-content: center;
 		flex-direction: column;
 		display: flex;
+
+		p {
+			text-align: center;
+		}
+
+		ul {
+			max-width: 540px;
+			margin: 0 auto;
+		}
+
 	}
 
 	header {
@@ -213,18 +222,19 @@ main.two-column {
 
 	}
 
-	.gather-left {
+	.gather-left,
+	.gather-right {
+		width: 50%;
 		position: absolute;
 		top: 0;
+	}
+
+	.gather-left {
 		left: 0;
-		width: 300px;
 	}
 
 	.gather-right {
-		position: absolute;
-		top: 0;
 		right: 0;
-		width: 300px;
 	}
 
 	.tagline {
@@ -237,18 +247,26 @@ main.two-column {
 }
 
 button {
-	background-color: #1a5dad;
-	color: white;
+	background-color: $gray-darkest;
+	color: $white;
 	outline: none;
 	cursor: pointer;
 	padding: 10px;
-	border-radius: 2px;
+	border-radius: 4px;
+	min-width: 140px;
 	border: 0;
 	letter-spacing: 0.5px;
 	text-align: center;
 	font-size: 1.2em;
 	-webkit-appearance: button;
 	margin: 5px;
+	box-shadow: 0 5px 10px rgba( 0,0,0, .25 );
+}
+
+button.button-small {
+	font-size: 100%;
+	min-width: 0;
+	padding: 6px 10px;
 }
 
 button:disabled {
@@ -260,16 +278,23 @@ button:disabled {
 }
 
 .editable-input {
-	background-color: transparent;
+	background-color: rgba( 255,255,255,.75 );
 	border: none;
 	padding: 4px 6px;
-	color: #ddd;
+	color: $gray-darkest;
 
 	&:hover, &:active, &:focus, .selected {
-		background-color: #2e4453;
-		border-color: 1px solid red;
+		background-color: $white;
 		outline: none;
 	}
+}
+
+input, textarea {
+	background: $white;
+	border-radius: 2px;
+	padding: 2px 4px;
+	border: none;
+	box-shadow: inset 0 1px 2px rgba( 0,0,0, .2 );
 }
 
 .drive-container {
@@ -312,15 +337,24 @@ button:disabled {
 		}
 
 		.drive-item {
-			padding: 10px 5px;
+			padding: 5px;
+			cursor: pointer;
+			font-family: monospace;
+			font-size: 13px;
+			border-radius: 2px;
+			margin: 2px 0;
+		}
+
+		.drive-item-name {
+			font-weight: bold;
 		}
 
 		.drive-item.is-selected {
-			background-color: lightgreen;
+			background-color: $green-light;
 		}
 
 		.drive-item:hover {
-			background-color: green;
+			background-color: $green;
 		}
 
 		.drive-item.is-protected, .drive-item.is-protected:hover {
@@ -337,14 +371,15 @@ p.explain {
 
 .progress {
 	width: 400px;
-	border: 1px solid rgb(250, 203, 147);
-	background-color: rgb(250, 203, 147);
-	height: 50px;
+	background-color: #52c8ec;
+	height: 48px;
 	margin: 0 auto;
+	border-radius: 24px;
+	overflow: hidden;
 
 	.progress-bar {
 		height: 48px;
-		background-color: rgb(255, 162, 52);
+		background-color: $gray-darkest;
 	}
 }
 
