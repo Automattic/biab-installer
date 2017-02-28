@@ -5,6 +5,7 @@
 
 import request from 'request';
 import fs from 'fs';
+const { app } = require( 'electron' ).remote;
 
 const debug = require( 'debug' )( 'biab:download:action' );
 
@@ -126,6 +127,10 @@ export const downloadMiddleware = store => next => action => {
 
 			localStorage.removeItem( 'installed-' + resource.name );
 		} );
+
+		debug( 'Relaunching' );
+		app.relaunch();
+		app.exit( 0 );
 	}
 
 	return next( action );
