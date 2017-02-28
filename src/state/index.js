@@ -11,6 +11,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import { driveMiddleware } from 'state/drive/middleware';
 import { downloadMiddleware } from 'state/download/middleware';
+import { configMiddleware } from 'state/config/middleware';
 import { initialActions } from './initial';
 
 /**
@@ -25,6 +26,7 @@ const middlewares = [
 	thunk,
 	driveMiddleware,
 	downloadMiddleware,
+	configMiddleware,
 ];
 
 export default function createReduxStore( initialState = {} ) {

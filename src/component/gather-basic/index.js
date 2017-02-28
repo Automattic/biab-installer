@@ -4,17 +4,22 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+const { app } = require( 'electron' ).remote;
 
 /**
  * Internal dependencies
  */
 
 import Input from 'component/input';
-import { gotoStage } from 'state/config/action';
+import { gotoStage, pickSshKey } from 'state/config/action';
 import { STAGE_GATHER_ADVANCED, STAGE_DOWNLOAD } from 'state/config/type';
 
+function shortenPath( path ) {
+	return path.replace( app.getPath( 'home' ), '~' );
+}
+
 const GatherBasic = ( props ) => {
-	const { settings, onNext, onBack } = props;
+	const { settings, onNext, onBack, onPickSSH } = props;
 
 	return (
 		<div className="home">
@@ -35,11 +40,15 @@ const GatherBasic = ( props ) => {
 				<p>Optionally supply your SSH public key to login without a password.</p>
 				<table className="gather">
 					<tbody>
-						<tr><th>Public SSH key</th><td><Input value={ settings.sshKey } name="sshKey" /></td></tr>
+						<tr>
+							<th>Public SSH key</th>
+							<td>
+								<button onClick={ onPickSSH }>Select</button>
+								{ settings.sshKey ? <p>{ shortenPath( settings.sshKey ) }</p> : false }
+							</td>
+						</tr>
 					</tbody>
 				</table>
-
-				<p className="explain">You can usually find your key somewhere like <code>~/.ssh/id_rsa.pub</code></p>
 
 				<p>Need more <a href="https://github.com/Automattic/biab-installer" rel="noopener noreferrer" target="_blank">help?</a></p>
 			</main>
@@ -59,6 +68,9 @@ function mapDispatchToProps( dispatch ) {
 		},
 		onBack: () => {
 			dispatch( gotoStage( STAGE_DOWNLOAD ) );
+		},
+		onPickSSH: () => {
+			dispatch( pickSshKey() );
 		}
 	};
 }
