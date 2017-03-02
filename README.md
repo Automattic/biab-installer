@@ -51,6 +51,8 @@ To make a release to Github:
 
 - Commit all changes to Github and ensure that `package.json` and `app/package.json` have been versioned.
 - Ensure `GH_TOKEN` is set with a Github application specific token (needs the `repo` scope permission)
+- Ensure `WIN_CSC_LINK` points at a valid `.p12` certificate (needs to be a full path)
+- Ensure `WIN_CSC_KEY_PASSWORD` contains the password for the certificate file
 - `yarn run release`
 - Go to [Releases](https://github.com/Automattic/biab-installer/releases) and edit the draft release
 - Publish release

@@ -6,3 +6,4 @@ node_modules/
 /dist
 /app/index.html
 /app/web.js
+/build/secrets
