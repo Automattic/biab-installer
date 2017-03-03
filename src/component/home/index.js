@@ -1,3 +1,4 @@
+/* global document, localStorage */
 /**
  * External dependencies
  */
@@ -13,6 +14,7 @@ import Burn from 'component/burn';
 import Download from 'component/download';
 import Complete from 'component/complete';
 import ShowAgain from 'component/show-again';
+import SudoPrompt from 'component/sudoprompt';
 
 import {
 	STAGE_INTRO,
@@ -23,9 +25,21 @@ import {
 	STAGE_DOWNLOAD,
 	STAGE_COMPLETE,
 	STAGE_SHOW_DETAILS,
+	STAGE_SHOW_SUDOPROMPT,
 } from 'state/config/type';
 
 class Home extends React.Component {
+	constructor( props ) {
+		super( props );
+
+		document.addEventListener( 'keydown', e => {
+			if ( e.keyCode === 73 && e.ctrlKey && e.shiftKey ) {
+				require( 'electron' ).remote.getCurrentWindow().toggleDevTools();
+				localStorage.debug = 'biab:*';
+			}
+		} );
+	}
+
 	render() {
 		const { stage } = this.props;
 
@@ -45,6 +59,8 @@ class Home extends React.Component {
 			return <Complete />;
 		} else if ( stage === STAGE_SHOW_DETAILS ) {
 			return <ShowAgain />;
+		} else if ( stage === STAGE_SHOW_SUDOPROMPT ) {
+			return <SudoPrompt />;
 		}
 	}
 }

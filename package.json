@@ -148,7 +148,9 @@
     },
     "linux": {
       "category": "Development",
-      "icon": "icons/"
+      "icon": "icons/",
+	  "target": [ "deb", "tar.gz" ],
+	  "maintainer": "WordPress.com Support <support@wordpress.com>"
     },
     "mac": {
       "category": "public.app-category.developer-tools"
