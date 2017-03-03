@@ -1,3 +1,4 @@
+/* global document, localStorage */
 /**
  * External dependencies
  */
@@ -26,6 +27,17 @@ import {
 } from 'state/config/type';
 
 class Home extends React.Component {
+	constructor( props ) {
+		super( props );
+
+		document.addEventListener( 'keydown', e => {
+			if ( e.keyCode === 73 && e.ctrlKey && e.shiftKey ) {
+				require( 'electron' ).remote.getCurrentWindow().toggleDevTools();
+				localStorage.debug = 'biab:*';
+			}
+		} );
+	}
+
 	render() {
 		const { stage } = this.props;
 
