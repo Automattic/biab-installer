@@ -1,21 +1,19 @@
 {
 	"presets": [
-		[ "env", { "targets": { "node": 6 }, "useBuiltIns": true } ],
-		"stage-0",
-		"react"
+		[ "@babel/preset-env", { "targets": { "node": 6 } } ],
+		"@babel/preset-react"
     ],
 	"plugins": [
-		"transform-object-rest-spread",
-		"transform-flow-strip-types",
-		"transform-async-to-generator"
+		"@babel/plugin-transform-object-rest-spread",
+		"@babel/plugin-transform-flow-strip-types",
+		"@babel/plugin-transform-async-to-generator"
 	],
 	"env": {
 		"test": {
-			"presets": ["es2015"]
+			"presets": ["@babel/preset-env"]
 		},
 		"development": {
-			"plugins": [ "react-hot-loader/babel" ],
-			"presets": [ "react-hmre" ]
+			"plugins": [ "react-hot-loader/babel" ]
 		}
 	}
 }

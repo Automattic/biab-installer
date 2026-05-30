@@ -3,11 +3,36 @@
  */
 
 const path = require( 'path' );
-const webpack = require( 'webpack' );
-const cssnext = require( 'postcss-cssnext' );
-const postcssFocus = require( 'postcss-focus' );
-const postcssReporter = require( 'postcss-reporter' );
-const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+
+class IndexHtmlPlugin {
+	apply( compiler ) {
+		compiler.plugin( 'emit', ( compilation, callback ) => {
+			const script = Object.keys( compilation.assets ).find( name => /\.js($|\?)/.test( name ) );
+			const html = [
+				'<!DOCTYPE html>',
+				'<html>',
+				'<head>',
+				'\t<meta name="viewport" content="width=device-width, initial-scale=1">',
+				'\t<meta charset="UTF-8">',
+				'\t<title>Blog In A Box</title>',
+				'</head>',
+				'<body>',
+				'\t<div id="app"></div>',
+				script ? `\t<script type="text/javascript" src="${ script }"></script>` : '',
+				'</body>',
+				'</html>',
+				'',
+			].join( '\n' );
+
+			compilation.assets[ 'index.html' ] = {
+				source: () => html,
+				size: () => html.length,
+			};
+
+			callback();
+		} );
+	}
+}
 
 const config = {
 	module: {
@@ -34,24 +59,7 @@ const config = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin( {
-			title: 'Blog In A Box',
-			template: path.join( 'src', 'index.ejs' ),
-			hash: true,
-		} ),
-		new webpack.LoaderOptionsPlugin( {
-			options: {
-				postcss: [
-					postcssFocus(),
-					cssnext( {
-						browsers: [ 'last 2 versions', 'IE > 10' ],
-					} ),
-					postcssReporter( {
-						clearMessages: true
-					} ),
-				]
-			}
-		} ),
+		new IndexHtmlPlugin(),
 	],
 	context: __dirname,
 	resolve: {
