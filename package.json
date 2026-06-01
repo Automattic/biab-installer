@@ -61,7 +61,7 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.23.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1",
+    "webpack-dev-server": "^5.2.4",
     "webpack-merge": "^3.0.0",
     "webpack-remove-debug": "^0.1.0"
   },
